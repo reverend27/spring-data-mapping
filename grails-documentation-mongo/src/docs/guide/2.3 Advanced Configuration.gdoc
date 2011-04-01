@@ -4,11 +4,30 @@ As mentioned the GORM for Mongo plugin will configure all the defaults for you, 
 grails {
   mongo {
     host = "localhost"
-    port = 27107
+    port = 27017
     username = "blah"
     password = "blah"
     databaseName = "foo"
   }
+}
+{code}
+
+To configure "environment aware" instances of MongoDB using the GORM for Mongo Plugin you can place the various configurations within an @environments@ block:
+
+{code:java}
+environments {
+    development {
+        grails {
+            mongo {
+                host="localhost"
+                port="27017"
+                databaseName="devDb"
+            }
+        }
+    }
+    production {
+        // Production settings go here
+    }
 }
 {code}
 
